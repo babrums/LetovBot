@@ -34,6 +34,7 @@ const genStr = [
         'пьезовый',
     ],
     [
+        'трактор',
         'зайчик',
         'Верник',
         'глобус',
@@ -55,11 +56,6 @@ const genStr = [
         'йогурт',
         'овод',
         'пьезо',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
     ],
     [
         'стеклянного',
@@ -83,14 +79,9 @@ const genStr = [
         'парадного',
         'укромного',
         'пьезового',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
     ],
     [
+        'пупса',
         'глаза',
         'плова',
         'Пельша',
@@ -115,16 +106,6 @@ const genStr = [
         'неба',
         'хлеба',
         'хлама',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
-        // '',
     ],
 ]
 
@@ -137,9 +118,11 @@ function genOborona() {
 bot.on('text', (ctx) => {
     // if (!config.WHITELIST.includes(ctx.message.from.id)) return ctx.reply(`Здравствуйте. А вы кто? Я общаюсь только с Вагачатом и Лёвой`)
     const { first_name, username, last_name } = ctx.message.from
-    console.time(`Message from ${first_name} ${last_name} (@${username})\t"${ctx.message.text}"`)
-    if (ctx.message.text.match(/(о|О){3,}/g)) ctx.reply(`ооО, моя оборона\n${genOborona()}`)
-    console.timeEnd(`Message from ${first_name} ${last_name} (@${username})\t"${ctx.message.text}"`)
+    if (ctx.message.text.match(/(о|О|o|O){3,}/g)) {
+        console.time(`Message from ${first_name} ${last_name} (@${username})\t"${ctx.message.text}"`)
+        ctx.reply(`ооО, моя оборона\n${genOborona()}`)
+        console.timeEnd(`Message from ${first_name} ${last_name} (@${username})\t"${ctx.message.text}"`)
+    }
 })
 
 bot.launch()
