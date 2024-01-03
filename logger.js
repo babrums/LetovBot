@@ -3,7 +3,7 @@ const filterFields = (obj) => {
   return props
 }
 
-module.exports = (ctx, ans) => {
+module.exports = (ctx) => {
   const { from, chat, text, message_id } = ctx.message
 
   const rawGroup = filterFields(chat)
@@ -15,5 +15,5 @@ module.exports = (ctx, ans) => {
   for (const field of Object.keys(rawGroup)) data[`group_${field}`] = rawGroup[field]
 
 
-  console.log(JSON.stringify({ message_id, ...data, text, ans }))
+  console.log(JSON.stringify({ message_id, ...data, text }))
 }
