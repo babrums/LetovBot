@@ -10,7 +10,7 @@ const bot = new Telegraf(BOT_TOKEN)
 
 function processMsg (ctx) {
     if (CLOWN_IDS.includes(ctx.message.from.id)) reactWithClownEmoji(ctx)
-    if (!ctx.message.text.match(/(о|О|o|O){3,}/g)) return
+    if (!ctx.message?.text.match(/(о|О|o|O){3,}/g)) return
     const oborona = genOborona()
     ctx.reply(`ооО, моя оборона\n${oborona}`)
     log(ctx, oborona)
